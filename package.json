@@ -1,0 +1,30 @@
+{
+  "name": "ndc-log-masking-e2e",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "NDC multi-supplier API flow + OpenSearch Dashboards log-masking validation (TypeScript + Playwright)",
+  "scripts": {
+    "test": "tsx --test src/masking.test.ts src/utils.test.ts src/cli.test.ts",
+    "setup": "playwright install chromium",
+    "typecheck": "tsc --noEmit",
+    "e2e": "tsx src/e2e_validator.ts",
+    "e2e:headed": "tsx src/e2e_validator.ts --headed --open",
+    "e2e:dry": "tsx src/e2e_validator.ts --stop-after fareConfirm",
+    "e2e:dry:headed": "tsx src/e2e_validator.ts --stop-after fareConfirm --headed --open",
+    "report": "tsx src/open_report.ts",
+    "report:build": "tsx src/build_report.ts"
+  },
+  "engines": {
+    "node": ">=20.12"
+  },
+  "dependencies": {
+    "@playwright/test": "^1.64.1",
+    "axios": "^1.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "supplier": "{{SUPPLIER_NAME}}",
+  "credentialsSelector": "{{CREDENTIALS_SELECTOR}}",
+  "responseId": "{{fareConfirmResponseId}}",
+  "selectedOfferId": "{{fareConfirmSelectedOfferId}}",
+  "passengersList": {
+    "Pax1": {
+      "title": "MR",
+      "name": {
+        "first": "Mostafa",
+        "middle": "",
+        "last": "Madkour"
+      },
+      "nationality": "EG",
+      "residentCountry": "EG",
+      "birthDate": "1999-02-10T00:46:42.560Z",
+      "gender": "Male",
+      "passengerTypeCode": "ADT",
+      "contactRefId": "Contact1",
+      "travelDocument": {
+        "name": {
+          "first": "Mostafa",
+          "middle": "",
+          "last": "Madkour"
+        },
+        "nationality": "EG",
+        "expirationDate": "2028-12-28T00:46:42.560Z",
+        "issuanceDate": "2026-01-01T00:00:00.000Z",
+        "documentNumber": "A98765431",
+        "documentType": "Passport",
+        "gender": "Male",
+        "birthCountry": "EG",
+        "birthDate": "1999-02-10T00:46:42.560Z",
+        "issuanceCountryCode": "EG"
+      }
+    },
+    "Pax9": {
+      "title": "MSTR",
+      "name": {
+        "first": "Sief",
+        "middle": "",
+        "last": "Mad"
+      },
+      "nationality": "EG",
+      "residentCountry": "EG",
+      "birthDate": "2017-02-22T00:46:42.560Z",
+      "gender": "Male",
+      "passengerTypeCode": "CHD",
+      "contactRefId": "Contact1",
+      "travelDocument": {
+        "name": {
+          "first": "Sief",
+          "middle": "",
+          "last": "Mad"
+        },
+        "nationality": "EG",
+        "expirationDate": "2028-11-28T00:46:42.560Z",
+        "issuanceDate": "2020-01-28T00:46:42.560Z",
+        "documentNumber": "A98765432",
+        "documentType": "Passport",
+        "gender": "Male",
+        "birthCountry": "EG",
+        "birthDate": "2017-02-22T00:46:42.560Z",
+        "issuanceCountryCode": "EG"
+      }
+    },
+    "Pax10": {
+      "title": "MISS",
+      "name": {
+        "first": "Lina",
+        "middle": "",
+        "last": "Madkour"
+      },
+      "nationality": "EG",
+      "residentCountry": "EG",
+      "birthDate": "2025-05-22T00:46:42.560Z",
+      "gender": "Female",
+      "passengerTypeCode": "INF",
+      "parentPaxRefId": "Pax1",
+      "contactRefId": "Contact1",
+      "travelDocument": {
+        "name": {
+          "first": "Lina",
+          "middle": "",
+          "last": "Madkour"
+        },
+        "nationality": "EG",
+        "expirationDate": "2028-11-28T00:46:42.560Z",
+        "issuanceDate": "2026-01-28T00:46:42.560Z",
+        "documentNumber": "A98765433",
+        "documentType": "Passport",
+        "gender": "Female",
+        "birthCountry": "EG",
+        "birthDate": "2025-05-22T00:46:42.560Z",
+        "issuanceCountryCode": "EG"
+      }
+    }
+  },
+  "contactsList": {
+    "Contact1": {
+      "email": "qa.automation@example.com",
+      "phone": {
+        "type": "Mobile",
+        "countryDialingCode": "{{CONTACT_DIALING_CODE}}",
+        "phoneNumber": "{{CONTACT_PHONE}}"
+      },
+      "address": {
+        "line1": "1 Test Street",
+        "line2": "Floor 1",
+        "city": "Cairo",
+        "countryCode": "EG"
+      }
+    }
+  }
+}

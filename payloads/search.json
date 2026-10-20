@@ -1,0 +1,18 @@
+{
+  "supplier": "{{SUPPLIER_NAME}}",
+  "credentialsSelector": "{{CREDENTIALS_SELECTOR}}",
+  "isdebug": true,
+  "applyUpselling": true,
+  "searchCriteria": [
+    {
+      "origin": "{{ORIGIN}}",
+      "destination": "{{DESTINATION}}",
+      "date": "{{DEPARTURE_DATE}}"
+    }
+  ],
+  "passengers": [
+    { "passengerTypeCode": "ADT", "count": 1 },
+    { "passengerTypeCode": "CHD", "count": 1 },
+    { "passengerTypeCode": "INF", "count": 1 }
+  ]
+}

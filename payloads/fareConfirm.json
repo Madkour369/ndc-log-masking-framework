@@ -1,0 +1,6 @@
+{
+  "supplier": "{{SUPPLIER_NAME}}",
+  "credentialsSelector": "{{CREDENTIALS_SELECTOR}}",
+  "ResponseId": "{{searchResponseId}}",
+  "selectedOfferId": "{{selectedOfferId}}"
+}

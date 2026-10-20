@@ -1,0 +1,7 @@
+{
+  "supplier": "{{SUPPLIER_NAME}}",
+  "credentialsSelector": "{{CREDENTIALS_SELECTOR}}",
+  "responseId": "{{fareConfirmResponseId}}",
+  "selectedOfferId": "{{fareConfirmSelectedOfferId}}",
+  "selectedBundles": []
+}

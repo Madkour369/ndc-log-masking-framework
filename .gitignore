@@ -1,0 +1,14 @@
+# secrets - never commit
+.env
+secrets.local.txt
+
+# generated output
+reports/
+test-results/
+playwright-report/
+dist/
+*.log
+
+# dependencies & editor
+node_modules/
+.vscode/

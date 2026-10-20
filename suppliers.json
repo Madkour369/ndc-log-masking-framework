@@ -1,0 +1,180 @@
+[
+  "AJet",
+  {
+    "name": "TK Connect",
+    "code": "TKConnect"
+  },
+  {
+    "name": "Riyadh Air",
+    "code": "RiyadhAir"
+  },
+  {
+    "name": "Sabre ATPCO",
+    "code": "SabreAtpco"
+  },
+  {
+    "name": "Sabre NDC",
+    "code": "SabreNdc"
+  },
+  {
+    "name": "SereneAir",
+    "primaryRoute": { "origin": "KHI", "destination": "ISB" },
+    "fallbackRoutes": [
+      { "origin": "KHI", "destination": "LHE" },
+      { "origin": "ISB", "destination": "JED" }
+    ]
+  },
+  "Nesma",
+  {
+    "name": "GLC",
+    "code": "Glc"
+  },
+  {
+    "name": "Gulf Air",
+    "code": "GulfAir",
+    "primaryRoute": { "origin": "CAI", "destination": "BAH" },
+    "fallbackRoutes": [
+      { "origin": "BAH", "destination": "CAI" }
+    ]
+  },
+  {
+    "name": "Air Cairo",
+    "code": "AirCairo",
+    "primaryRoute": { "origin": "CAI", "destination": "RUH", "date": "2026-10-20" },
+    "fallbackRoutes": [
+      { "origin": "CAI", "destination": "JED", "date": "2026-10-20" },
+      { "origin": "CAI", "destination": "SSH", "date": "2026-10-20" }
+    ]
+  },
+  "EgyptAir",
+  {
+    "name": "Air India",
+    "code": "AirIndia",
+    "primaryRoute": { "origin": "DEL", "destination": "BOM" },
+    "fallbackRoutes": [
+      { "origin": "DEL", "destination": "DXB" }
+    ]
+  },
+  {
+    "name": "AirSial",
+    "primaryRoute": { "origin": "KHI", "destination": "ISB" },
+    "fallbackRoutes": [
+      { "origin": "LHE", "destination": "KHI" },
+      { "origin": "SKT", "destination": "JED" }
+    ]
+  },
+  {
+    "name": "Flyadeal",
+    "primaryRoute": { "origin": "RUH", "destination": "JED" },
+    "fallbackRoutes": [
+      { "origin": "CAI", "destination": "RUH" }
+    ]
+  },
+  {
+    "name": "Al Jazeera V4",
+    "code": "ElJazeeraV4",
+    "primaryRoute": { "origin": "CAI", "destination": "KWI" },
+    "fallbackRoutes": [
+      { "origin": "KWI", "destination": "CAI" }
+    ]
+  },
+  {
+    "name": "flydubai",
+    "code": "FlyDubai",
+    "primaryRoute": { "origin": "CAI", "destination": "DXB" },
+    "fallbackRoutes": [
+      { "origin": "DXB", "destination": "CAI" }
+    ]
+  },
+  "FlyNas",
+  {
+    "name": "SpiceJet",
+    "primaryRoute": { "origin": "DEL", "destination": "BOM" },
+    "fallbackRoutes": [
+      { "origin": "BOM", "destination": "DXB" }
+    ]
+  },
+  {
+    "name": "Bangla",
+    "primaryRoute": { "origin": "DAC", "destination": "CGP" },
+    "fallbackRoutes": [
+      { "origin": "DAC", "destination": "DXB" }
+    ]
+  },
+  {
+    "name": "Tarco",
+    "variables": { "CREDENTIALS_SELECTOR": "UAE" },
+    "primaryRoute": { "origin": "CAI", "destination": "KRT", "date": "2026-10-20" },
+    "fallbackRoutes": [
+      { "origin": "KRT", "destination": "CAI", "date": "2026-10-20" }
+    ]
+  },
+  {
+    "name": "Ethiopian",
+    "primaryRoute": { "origin": "CAI", "destination": "ADD" },
+    "fallbackRoutes": [
+      { "origin": "ADD", "destination": "CAI" }
+    ]
+  },
+  {
+    "name": "OmanAirV17",
+    "primaryRoute": { "origin": "CAI", "destination": "MCT" },
+    "fallbackRoutes": [
+      { "origin": "MCT", "destination": "CAI" }
+    ]
+  },
+  {
+    "name": "EmiratesV21",
+    "primaryRoute": { "origin": "CAI", "destination": "DXB" },
+    "fallbackRoutes": [
+      { "origin": "DXB", "destination": "CAI" }
+    ]
+  },
+  {
+    "name": "AegeanV21",
+    "primaryRoute": { "origin": "ATH", "destination": "CAI" },
+    "fallbackRoutes": [
+      { "origin": "CAI", "destination": "ATH" }
+    ]
+  },
+  {
+    "name": "Air Arabia",
+    "code": "AirArabia",
+    "primaryRoute": { "origin": "CAI", "destination": "SHJ" },
+    "fallbackRoutes": [
+      { "origin": "SHJ", "destination": "CAI" }
+    ]
+  },
+  {
+    "name": "FlyCham",
+    "primaryRoute": { "origin": "DAM", "destination": "DXB" },
+    "fallbackRoutes": [
+      { "origin": "DAM", "destination": "SHJ" }
+    ]
+  },
+  {
+    "name": "AirBlue",
+    "primaryRoute": { "origin": "KHI", "destination": "ISB" },
+    "fallbackRoutes": [
+      { "origin": "LHE", "destination": "KHI" },
+      { "origin": "KHI", "destination": "DXB" }
+    ]
+  },
+  "Amadeus",
+  {
+    "name": "Amadeus NDC",
+    "code": "AmadeusNDC"
+  },
+  "Galileo",
+  {
+    "name": "Indigo",
+    "primaryRoute": { "origin": "DEL", "destination": "BOM" },
+    "fallbackRoutes": [
+      { "origin": "BOM", "destination": "DXB" }
+    ]
+  },
+  {
+    "name": "Travelport NDC",
+    "code": "TravelportNdc"
+  }
+]

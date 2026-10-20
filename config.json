@@ -1,0 +1,133 @@
+{
+  "base_url": "${NDC_BASE_URL}",
+  "request_timeout_seconds": 180,
+  "verify_ssl": true,
+  "max_retries": 2,
+  "retry_backoff_seconds": 3,
+  "default_headers": {
+    "Content-Type": "application/json",
+    "Accept": "application/json"
+  },
+  "api_key_header": "x-api-key",
+  "correlation_headers": [
+    "CorrelationId",
+    "X-Correlation-Id",
+    "X-Ms-Middleware-Request-Id",
+    "Request-Id"
+  ],
+
+  "variables": {
+    "CREDENTIALS_SELECTOR": "EGY",
+    "DEPARTURE_DATE": "2026-10-20",
+    "CONTACT_DIALING_CODE": "+20",
+    "CONTACT_PHONE": "1012345678"
+  },
+
+  "routes": {
+    "default_primary": { "origin": "CAI", "destination": "RUH" },
+    "default_fallbacks": [
+      { "origin": "CAI", "destination": "JED" },
+      { "origin": "CAI", "destination": "DXB" }
+    ],
+    "append_default_fallbacks": true,
+    "fallback_on_status": [400, 422, 500],
+    "no_fallback_errors": [
+      "could not be converted to NDC.Integrations.Application.Dtos.Api.Supplier",
+      "credentials for the selected supplier do not exist"
+    ]
+  },
+
+  "steps": [
+    {
+      "name": "search",
+      "endpoint": "/api/v2/FlightSearch/Search",
+      "payload": "search.json",
+      "retryable": true,
+      "route_fallback": true,
+      "extract": {
+        "searchResponseId": ["responseId", "searchResponseId", "**.responseId"],
+        "selectedOfferId": ["offers[*].offerId", "offers[*].id", "**.offerId", "**.selectedOfferId"]
+      }
+    },
+    {
+      "name": "fareConfirm",
+      "endpoint": "/api/v2/FlightSearch/FareConfirm",
+      "payload": "fareConfirm.json",
+      "retryable": true,
+      "extract": {
+        "fareConfirmResponseId": ["responseId", "fareConfirmResponseId", "**.responseId"],
+        "fareConfirmSelectedOfferId": ["selectedOffer.offerId", "selectedOfferId", "offers[*].offerId", "**.selectedOfferId", "**.offerId"]
+      }
+    },
+    {
+      "name": "addPassengerDetails",
+      "endpoint": "/api/v2/Passenger/AddPassengerDetails",
+      "payload": "addPassengerDetails.json",
+      "retryable": false,
+      "extract": {
+        "passengerResponseId": ["responseId"],
+        "passengerOfferId": ["offerId", "selectedOfferId"]
+      }
+    },
+    {
+      "name": "book",
+      "endpoint": "/api/v2/FlightBooking/Book",
+      "payload": "book.json",
+      "retryable": false
+    }
+  ],
+
+  "error_paths": ["errors", "error", "errorMessage"],
+  "success_flags": ["isSuccess", "success", "succeeded"],
+
+  "masking": {
+    "sensitive_keys": [
+      "password", "passwd", "pwd", "pass-word", "agencyPassword",
+      "username", "user-name", "userId", "login", "loginId",
+      "credentials.username", "credentials.password",
+      "secret", "client_secret", "sharedSecret", "privateKey",
+      "apiKey", "api_key", "secretKey", "secret_key", "x-api-key", "ocp-apim-subscription-key",
+      "token", "data.token", "authToken", "securityToken", "sessionToken", "binarySecurityToken",
+      "access_token", "refresh_token", "id_token",
+      "authorization", "proxy-authorization", "AuthorizedBy", "Nonce",
+      "signature", "digitalSignature", "sig",
+      "cardNumber", "card_number", "cvv", "cvc", "cvv2", "expiryDate", "cardHolder", "cardHolderName"
+    ],
+    "sensitive_key_patterns": [
+      "username", "password", "passwd", "secret", "token", "authorization", "apikey", "signature",
+      "cardnumber", "cardholder", "cvv", "cvc"
+    ],
+    "sensitive_containers": [
+      "paymentFields", "UniversalRecord.card"
+    ],
+    "ignore_key_patterns": [
+      "type", "expir", "required", "enabled", "length", "count", "policy", "format", "status", "url",
+      "echotoken"
+    ],
+    "excluded_keys": ["Authorization", "HostToken", "HostTokenRef", "userId", "HistoricUserName"],
+    "step_scoped_keys": { "ExpiryDate": ["book"] },
+    "mask_regex": "\\*+",
+    "known_secrets_env": "KNOWN_SECRETS",
+    "known_secrets_file": "secrets.local.txt",
+    "fail_on_response_exposure": true
+  },
+
+  "dashboards": {
+    "url": "${DASHBOARDS_URL}",
+    "tenant": "${DASHBOARDS_TENANT}",
+    "index_pattern_id": "${DASHBOARDS_INDEX_PATTERN_ID}",
+    "index": "${DASHBOARDS_INDEX}",
+    "correlation_field": "attributes.correlationId",
+    "time_range": { "from": "now-24h", "label": "Last 24 hours" },
+    "filter_fallback": true,
+    "ingest_wait_seconds": 45,
+    "poll_attempts": 8,
+    "poll_interval_seconds": 20,
+    "max_rows_to_expand": 20,
+    "max_documents": 500,
+    "fetch_full_documents": true,
+    "screenshots": "on_error",
+    "timeout_ms": 60000,
+    "selectors": {}
+  }
+}
